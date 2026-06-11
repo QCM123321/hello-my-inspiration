@@ -1,61 +1,73 @@
 /**
- * hello! my inspiration v2.0 - DEMO
- * Demonstrates the improved workflow with user preferences
+ * Demo for hello! my inspiration v3.0
+ * Demonstrates the interactive questionnaire and article recommendation flow
  */
 
 import {
-  collectUserPreferences,
-  analyzeWritingStyle,
-  searchRelevantArticles,
-  provideWritingFeedback,
-  explainDailyPushFeature,
-  runFullAnalysis
+  collectUserProfile,
+  recommendCompleteArticles,
+  runFullFlow
 } from './skill.js';
 
-// Sample user draft
-const userDraft = `
-Technology has fundamentally transformed how we communicate. In the past decade alone,
-we've witnessed an unprecedented shift from traditional media to digital platforms.
-What's particularly fascinating is how this transition has democratized content creation—
-anyone with a smartphone can now reach a global audience.
-
-However, this accessibility comes with challenges. The abundance of information has created
-what some call "digital noise," making it harder to distinguish quality content from
-superficial material. As writers, we must adapt and find our unique voice in this crowded landscape.
-
-The future of writing isn't about writing more—it's about writing better. It's about
-understanding your audience, crafting compelling narratives, and using technology as a tool
-rather than letting it use us.
-`;
-
-// Run the demo
 async function runDemo() {
   console.log('\n');
   console.log('╔════════════════════════════════════════════════════════╗');
-  console.log('║   ✨ hello! my inspiration v2.0 - DEMO ✨             ║');
   console.log('║                                                        ║');
-  console.log('║   Improved Features:                                   ║');
-  console.log('║   • User preference collection                         ║');
-  console.log('║   • Real-time article search                           ║');
-  console.log('║   • Clear daily push explanation                       ║');
-  console.log('║   • Multi-language support                             ║');
-  console.log('╚════════════════════════════════════════════════════════╝\n');
+  console.log('║     🎨 hello! my inspiration v3.0 - DEMO              ║');
+  console.log('║                                                        ║');
+  console.log('║     Interactive Writing Inspiration Assistant          ║');
+  console.log('║                                                        ║');
+  console.log('╚════════════════════════════════════════════════════════╝');
+  console.log('\n');
+  console.log('This demo shows how the skill works:\n');
+  console.log('STEP 1: User answers 5 questions about their profile');
+  console.log('STEP 2: Skill recommends complete, full-text articles');
+  console.log('STEP 3: User reads and gets inspired (no AI feedback!)\n');
+  console.log('─'.repeat(58) + '\n');
 
   try {
-    // Run the complete analysis flow
-    const result = await runFullAnalysis(userDraft);
+    // Run the complete flow
+    const result = await runFullFlow();
 
-    console.log('\n📊 ANALYSIS DATA CAPTURED:');
-    console.log('─'.repeat(58));
-    console.log('Preferences:', JSON.stringify(result.preferences, null, 2));
-    console.log('Style Analysis:', JSON.stringify(result.styleAnalysis, null, 2));
-    console.log('Articles Found:', result.articles.length);
-    console.log('\n');
+    // Print summary
+    console.log('\n' + '═'.repeat(58));
+    console.log('📊 DEMO SUMMARY');
+    console.log('═'.repeat(58) + '\n');
+
+    console.log('✅ User Profile Collected:');
+    console.log(`   • Age Group: ${result.userProfile.age}`);
+    console.log(`   • Profession: ${result.userProfile.profession}`);
+    console.log(`   • Purpose: ${result.userProfile.purpose}`);
+    console.log(`   • Favorite Authors: ${result.userProfile.favoriteAuthors.join(', ')}`);
+    console.log(`   • Preferred Article Types: ${result.userProfile.articleTypes.join(', ')}\n`);
+
+    console.log(`📚 Articles Recommended: ${result.articles.length}`);
+    result.articles.forEach((article, i) => {
+      console.log(`   ${i + 1}. "${article.title}" by ${article.author}`);
+    });
+
+    console.log('\n' + '═'.repeat(58));
+    console.log('💡 KEY FEATURES IN v3.0:');
+    console.log('═'.repeat(58) + '\n');
+    console.log('✨ Interactive Questionnaire');
+    console.log('   → Collects: Age, Profession, Purpose, Authors, Article Types\n');
+    console.log('📖 Complete Full-Text Articles');
+    console.log('   → No summaries, no links, just complete articles\n');
+    console.log('🎯 Pure Inspiration Focus');
+    console.log('   → No AI feedback, no modification suggestions\n');
+    console.log('🌍 Global Recommendations');
+    console.log('   → Supports multiple languages and platforms\n');
+
+    console.log('═'.repeat(58));
+    console.log('\n✅ Demo Complete!\n');
 
   } catch (error) {
-    console.error('Error running demo:', error);
+    console.error('❌ Demo error:', error);
+    process.exit(1);
   }
 }
 
 // Run the demo
 runDemo();
+
+export { runDemo };
