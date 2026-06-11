@@ -10,7 +10,7 @@ import {
   provideWritingFeedback,
   explainDailyPushFeature,
   runFullAnalysis
-} from './skill-v2.js';
+} from './skill.js';
 
 // Sample user draft
 const userDraft = `
