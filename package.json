@@ -1,0 +1,37 @@
+{
+  "name": "hello-my-inspiration",
+  "version": "1.0.0",
+  "description": "A writing inspiration assistant that analyzes your writing style and recommends relevant articles from around the world",
+  "main": "skill.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node example.js"
+  },
+  "keywords": [
+    "writing",
+    "inspiration",
+    "ai",
+    "claude",
+    "writing-assistant",
+    "article-recommendation",
+    "creative-writing"
+  ],
+  "author": "Qcm123321",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qcm123321/hello-my-inspiration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Qcm123321/hello-my-inspiration/issues"
+  },
+  "homepage": "https://github.com/Qcm123321/hello-my-inspiration#readme"
+}
