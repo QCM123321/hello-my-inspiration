@@ -1,0 +1,52 @@
+name: hello! my inspiration
+version: 1.0.0
+description: A writing inspiration assistant that analyzes your writing style and recommends relevant articles from around the world
+author: Qcm123321
+license: MIT
+
+tags:
+  - writing
+  - inspiration
+  - ai
+  - article-recommendation
+  - creative-writing
+
+commands:
+  - name: analyze
+    description: Analyze your writing style and get article recommendations
+    params:
+      draft:
+        type: string
+        description: Your writing draft to analyze
+        required: true
+      depth:
+        type: string
+        description: Feedback depth level (simple/medium/deep)
+        default: medium
+      numArticles:
+        type: number
+        description: Number of articles to recommend
+        default: 5
+
+  - name: daily-inspiration
+    description: Get daily inspiration article recommendations
+    params:
+      tone:
+        type: string
+        description: Your preferred tone
+        required: true
+      style:
+        type: string
+        description: Your writing style
+        required: true
+      themes:
+        type: string
+        description: Your favorite themes
+        required: true
+
+permissions:
+  - network: true
+    description: Required to search for articles worldwide
+
+homepage: https://github.com/QCM123321/hello-my-inspiration
+repository: https://github.com/QCM123321/hello-my-inspiration.git
